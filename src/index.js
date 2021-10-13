@@ -10,11 +10,11 @@ import App from './components/App/App';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store.store}>
-      <PersistGate loading="Loading..." persistor={store.persistor}>
+      {/* <PersistGate loading="Loading..." persistor={store.persistor}> */}
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </PersistGate>
+      {/* </PersistGate> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
