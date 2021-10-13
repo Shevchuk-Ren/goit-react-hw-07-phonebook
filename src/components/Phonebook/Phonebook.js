@@ -10,6 +10,18 @@ class Phonebook extends React.Component {
 
   handleSubmitForm = evt => {
     evt.preventDefault();
+    const newContactName = this.state.name;
+    const currentContacts = this.props.contacts;
+   
+       const normalizedName = currentContacts.find(
+      ({name}) => name.toLowerCase() === newContactName.toLowerCase(),
+    );
+
+    if (normalizedName) {
+      alert(`${newContactName} is alredy in contacts.`);
+      this.reset();
+      return;
+    }
 
     this.props.onSubmit(this.state);
     this.reset();

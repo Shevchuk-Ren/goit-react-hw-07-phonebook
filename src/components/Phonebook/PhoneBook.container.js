@@ -1,9 +1,13 @@
 import { connect } from 'react-redux';
 import Phonebook from './Phonebook';
+import { getContacts } from '../../redux/phoneBook/phonebook-selectors'
 import { addContact } from '../../redux/phoneBook/phonebook-actions';
 
+
+
 const mapStateToProps = state => ({
-  contacts: state.phoneBook.contacts,
+  
+  contacts: getContacts(state),
 });
 const mapDispatchToProps = dispatch => ({
   onSubmit: data => dispatch(addContact(data)),

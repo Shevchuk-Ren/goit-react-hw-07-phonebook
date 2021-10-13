@@ -15,14 +15,7 @@ const filterReducer = createReducer(initialStateFilter, {
 
 const contacts = createReducer(initialStateContacts, {
   'phonebook/addContact': (state, { payload }) => {
-    const normalizedName = state.find(
-      contact => contact.name.toLowerCase() === payload.name.toLowerCase(),
-    );
-
-    if (normalizedName) {
-      alert(`${payload.name} is alredy in contacts.`);
-      return state;
-    }
+ 
     return [...state, payload];
   },
   'phonebook/deleteContact': (state, { payload }) =>
