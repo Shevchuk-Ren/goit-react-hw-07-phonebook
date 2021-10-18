@@ -1,0 +1,49 @@
+{
+  "contacts": [
+    {
+      "id": "id-1",
+      "name": "Rosie Simpson",
+      "number": "459-12-56"
+    },
+    {
+      "id": "id-2",
+      "name": "Hermione Kline",
+      "number": "443-89-12"
+    },
+    {
+      "id": "id-3",
+      "name": "Eden Clements",
+      "number": "645-17-79"
+    },
+    {
+      "id": "id-4",
+      "name": "Annie Copeland",
+      "number": "227-91-26"
+    },
+    {
+      "id": "5fce76c9-740e-4d04-9c39-29a0e92ca428",
+      "name": "Carmelita Garsuia",
+      "number": "779-76-43"
+    },
+    {
+      "id": "109cbf93-c428-457f-8c9a-01c0c1b64057",
+      "name": "Rayan Walles",
+      "number": "779-76-43"
+    },
+    {
+      "id": "bbf99c9c-6fd4-4372-bc26-3ae5c38ff76d",
+      "name": "Carmelita Garsuia",
+      "number": "87687346378"
+    },
+    {
+      "id": "c23d3400-c3cf-4f88-97b4-455ef444b79e",
+      "name": "Carmelita Garsuia",
+      "number": "779-76-43"
+    },
+    {
+      "id": "02b58f0a-8544-4a51-b20e-66ce6538f12d",
+      "name": "Rayan Walles",
+      "number": "779-76-43"
+    }
+  ]
+}

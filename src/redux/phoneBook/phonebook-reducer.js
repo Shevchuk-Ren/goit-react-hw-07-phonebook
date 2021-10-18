@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
+import { addContact } from './phonebook-operations';
+import { addPhonebookError, addPhonebookRequest, addPhonebookSuccess, deleteContact, deletePhonebookRequest, deletePhonebookSuccess } from './phonebook-actions';
 
 const initialStateFilter = '';
 const initialStateContacts = [
@@ -9,22 +11,28 @@ const initialStateContacts = [
   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 ];
 
+const loading = createReducer(false, {
+  [addPhonebookRequest]: () => true,
+  [addPhonebookSuccess]: () => false,
+  [addPhonebookError]: () => false
+})
 const filterReducer = createReducer(initialStateFilter, {
   'phonebook/cgangeFilter': (_, action) => action.payload,
 });
 
-const contacts = createReducer(initialStateContacts, {
-  'phonebook/addContact': (state, { payload }) => {
- 
+const contacts = createReducer( [], {
+  [addPhonebookSuccess]: (state, { payload }) => {
+   console.log(state, `atrewq`)
     return [...state, payload];
   },
-  'phonebook/deleteContact': (state, { payload }) =>
+  [deletePhonebookSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
 
 export default combineReducers({
   contacts,
   filter: filterReducer,
+  loading
 });
 
 // import { combineReducers } from 'redux';

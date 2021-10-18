@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Item, List } from './ContactList.styled';
 import { connect } from 'react-redux';
-import { deleteContact } from '../../redux/phoneBook/phonebook-actions';
+import { deleteContact } from '../../redux/phoneBook/phonebook-operations';
 import { getVisibleFilter } from '../../redux/phoneBook/phonebook-selectors';
 
 
