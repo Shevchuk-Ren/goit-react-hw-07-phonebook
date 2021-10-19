@@ -11,18 +11,11 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// import storage from 'redux-persist/lib/storage';
+
 import phoneReducer from './phoneBook/phonebook-reducer';
-const asyncActionCreator = args => dispatch => {
-  
-}
-// const persistConfig = {
-//   key: 'contacts',
-//   storage,
-//   blacklist: ['filter'],
-// };
+
+
 const myMiddleware = store => next => action => {
-  console.log(`Прослойка`, store);
 
   next(action)
 }
@@ -30,6 +23,33 @@ const myMiddleware = store => next => action => {
 const rootReducer = combineReducers({
   phoneBook:  phoneReducer,
 });
+
+
+const store = configureStore({
+  reducer: rootReducer,
+
+  middleware: (getDefaultMiddleware) => [
+      ...getDefaultMiddleware({
+       serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER], 
+    },
+      }),
+    myMiddleware,
+    logger,
+  ],
+
+  devTools: process.env.NODE_ENV === 'development',
+});
+
+let persistor = persistStore(store);
+
+const feedbackStore = {
+  store,
+  persistor,
+};
+
+export default feedbackStore;
+
 
 // const store = configureStore({
 //   reducer: rootReducer,
@@ -61,29 +81,3 @@ const rootReducer = combineReducers({
 //    logger,
 //   devTools: process.env.NODE_ENV === 'development',
 // });
-
-
-const store = configureStore({
-  reducer: rootReducer,
-
-  middleware: (getDefaultMiddleware) => [
-      ...getDefaultMiddleware({
-       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER], 
-    },
-      }),
-    myMiddleware,
-    logger,
-  ],
-
-  devTools: process.env.NODE_ENV === 'development',
-});
-
-let persistor = persistStore(store);
-
-const feedbackStore = {
-  store,
-  // persistor,
-};
-
-export default feedbackStore;

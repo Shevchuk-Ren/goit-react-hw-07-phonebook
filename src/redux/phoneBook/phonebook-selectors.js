@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 export const getContacts = state => {
-    console.log(state, `STATE`)
+ 
    return state.phoneBook.contacts
 };
 
@@ -12,6 +12,8 @@ export const getVisibleFilter = createSelector([getFilter, getContacts], (filter
     contact.name.toLocaleLowerCase().includes(filter.toLowerCase()),
     );
 })
+
+export const getLoading = state => state.phoneBook.loading;
 
 // previous version
 

@@ -7,6 +7,7 @@ import { getVisibleFilter } from '../../redux/phoneBook/phonebook-selectors';
 
 
 
+
 const ContactList = ({ contacts, onDelete }) => (
   <List>
 
@@ -39,6 +40,7 @@ ContactList.propTypes = {
     }),
   ).isRequired,
 };
+
 
 // export default ContactList;
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

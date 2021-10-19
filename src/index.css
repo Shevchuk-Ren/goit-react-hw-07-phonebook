@@ -51,3 +51,6 @@ code {
 #root {
   padding: 20px;
 }
+.loading {
+  color:rgb(68, 68, 154);
+}
